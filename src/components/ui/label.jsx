@@ -1,5 +1,4 @@
-export const Label = ({ children, ...props }) => (
-  <label className="block mb-1 text-sm font-medium text-gray-700" {...props}>
-    {children}
-  </label>
+import React from 'react';
+export const Label = ({ children, htmlFor }) => (
+  <label htmlFor={htmlFor} className="block mb-1 font-medium">{children}</label>
 );
