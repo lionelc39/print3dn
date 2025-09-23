@@ -2,13 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --border: 214.3 31.8% 91.4%;
+/* variables de color - modificar según tu paleta */
+:root{
+  --bg: #E8EBFF;
+  --foreground: #0B0B0B;
+  --primary: #FF6B3D;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
 }
+
+body{
+  background-color: var(--bg);
+  color: var(--foreground);
+}
+
+/* estilos extra */
+.container{ max-width: 1100px; margin: 0 auto; padding-left:1rem; padding-right:1rem; }
