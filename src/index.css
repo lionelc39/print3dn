@@ -18,3 +18,31 @@ body{
 
 /* estilos extra */
 .container{ max-width: 1100px; margin: 0 auto; padding-left:1rem; padding-right:1rem; }
+/* --- Paleta personalizada (lavender/violeta) --- */
+:root{
+  /* Si querés modificar el tono en el futuro, solo cambiá el valor hexadecimal */
+  --lavender-50:  #F6F3FF;
+  --lavender-100: #EBDFFF;
+  --lavender-300: #C9A8FF;
+  --lavender-500: #8A63FF; /* color principal sugerido */
+  --lavender-600: #744CFF;
+  --lavender-700: #5E39E6;
+  --text-dark: #101010;
+}
+
+/* Forzar reemplazo de utilidades tailwind si fuese necesario */
+.text-primary { color: var(--lavender-500) !important; }
+.bg-primary { background-color: var(--lavender-500) !important; }
+.border-primary { border-color: var(--lavender-500) !important; }
+.hover\:bg-primary:hover { background-color: var(--lavender-600) !important; }
+.btn-primary {
+  background: var(--lavender-500);
+  color: white;
+  border-radius: 8px;
+  padding: .6rem 1rem;
+}
+.btn-primary:hover {
+  background: var(--lavender-600);
+}
+
+/* Si usás iconos con "text-primary" funcionará también */
