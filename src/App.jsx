@@ -26,14 +26,6 @@ const Printing3DWebsite = () => {
     if (saved) setBusinessData(JSON.parse(saved));
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: conectar a endpoint /api/contact para enviar mail o guardar.
-    console.log({ name, email, message });
-    setName(''); setEmail(''); setMessage('');
-    alert('Mensaje enviado (simulado).');
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Floating Buttons */}
@@ -145,21 +137,28 @@ const Printing3DWebsite = () => {
               <p className="mb-1"><strong>Tel:</strong> {businessData.phone}</p>
               <p><strong>Email:</strong> {businessData.email}</p>
             </div>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <Label htmlFor="name">Nombre</Label>
-                <Input id="name" value={name} onChange={(e)=>setName(e.target.value)} required />
-              </div>
-              <div className="mb-3">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required />
-              </div>
-              <div className="mb-3">
-                <Label htmlFor="message">Mensaje</Label>
-                <Textarea id="message" rows={4} value={message} onChange={(e)=>setMessage(e.target.value)} required />
-              </div>
-              <Button type="submit">Enviar Mensaje</Button>
-            </form>
+<form
+  action="https://formspree.io/f/mblzderr"  // <-- pega aquí tu URL de Formspree
+  method="POST"
+  className="space-y-4"
+>
+  <div>
+    <Label htmlFor="name">Nombre</Label>
+    <Input id="name" type="text" name="name" required />
+  </div>
+  <div>
+    <Label htmlFor="email">Email</Label>
+    <Input id="email" type="email" name="email" required />
+  </div>
+  <div>
+    <Label htmlFor="message">Mensaje</Label>
+    <Textarea id="message" name="message" rows={4} required />
+  </div>
+  <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+    Enviar Mensaje
+  </Button>
+</form>
+
           </div>
         </div>
       </section>
