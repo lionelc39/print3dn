@@ -185,13 +185,14 @@ const Printing3DWebsite = () => {
   );
 };
 
-export default Printing3DWebsite;
+import Printing3DWebsite from "./Printing3DWebsite";
 import Catalogo from "./Catalogo";
 
 function App() {
   return (
     <div>
       {/* otras secciones */}
+      <Printing3DWebsite />
       <Catalogo />
       {/* otras secciones */}
     </div>
