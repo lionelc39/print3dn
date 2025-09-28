@@ -111,25 +111,27 @@ const Printing3DWebsite = () => {
         </div>
       </section>
 
-{/* --- Galería expandida: Nuestro Trabajo (9 imágenes) --- */}
-<section id="galeria" className="py-20 bg-muted">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center text-foreground mb-12">Nuestro Trabajo</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {/* Repetir imagenes 1..9 */}
-      {Array.from({length:9}, (_,i)=> i+1).map(n => (
-        <div className="overflow-hidden rounded-lg shadow-sm" key={n}>
+{/* Galería - Nuestro Trabajo */}
+<section id="galeria" className="py-20 bg-gray-100">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-center mb-12">Nuestro Trabajo</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+        <div
+          key={n}
+          className="overflow-hidden rounded-lg shadow-sm bg-white"
+        >
           <img
             src={`/images/gallery-${n}.jpg`}
             alt={`Trabajo ${n}`}
-            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-            onError={(e)=> { e.target.src = '/images/gallery-placeholder.jpg'; }}
+            className="w-full h-48 object-cover transform scale-90 hover:scale-100 transition-transform duration-300"
           />
         </div>
       ))}
     </div>
   </div>
 </section>
+
 
 
       {/* Contacto */}
