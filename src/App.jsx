@@ -111,17 +111,26 @@ const Printing3DWebsite = () => {
         </div>
       </section>
 
-      {/* Galería */}
-      <section id="galeria" className="py-8 bg-muted/10">
-        <div className="container mx-auto">
-          <h3 className="text-2xl font-bold mb-6 text-center">Nuestro Trabajo</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <img src="/images/gallery-1.jpg" alt="Gallery 1" className="w-full h-64 object-cover rounded" />
-            <img src="/images/gallery-2.jpg" alt="Gallery 2" className="w-full h-64 object-cover rounded" />
-            <img src="/images/gallery-3.jpg" alt="Gallery 3" className="w-full h-64 object-cover rounded" />
-          </div>
+{/* --- Galería expandida: Nuestro Trabajo (9 imágenes) --- */}
+<section id="galeria" className="py-20 bg-muted">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center text-foreground mb-12">Nuestro Trabajo</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Repetir imagenes 1..9 */}
+      {Array.from({length:9}, (_,i)=> i+1).map(n => (
+        <div className="overflow-hidden rounded-lg shadow-sm" key={n}>
+          <img
+            src={`/images/gallery-${n}.jpg`}
+            alt={`Trabajo ${n}`}
+            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+            onError={(e)=> { e.target.src = '/images/gallery-placeholder.jpg'; }}
+          />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contacto */}
       <section id="contacto" className="py-8">
