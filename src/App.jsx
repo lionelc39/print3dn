@@ -186,3 +186,17 @@ const Printing3DWebsite = () => {
 };
 
 export default Printing3DWebsite;
+import Catalogo from "./Catalogo";
+
+function App() {
+  return (
+    <div>
+      {/* otras secciones */}
+      <Catalogo />
+      {/* otras secciones */}
+    </div>
+  );
+}
+
+export default App;
+
