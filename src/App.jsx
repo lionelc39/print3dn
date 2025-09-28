@@ -115,22 +115,23 @@ const Printing3DWebsite = () => {
 <section id="galeria" className="py-20 bg-gray-100">
   <div className="max-w-7xl mx-auto px-6 lg:px-8">
     <h2 className="text-3xl font-bold text-center mb-12">Nuestro Trabajo</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
         <div
           key={n}
-          className="overflow-hidden rounded-lg shadow-sm bg-white"
+          className="overflow-hidden rounded-lg shadow-sm bg-white flex items-center justify-center"
         >
           <img
             src={`/images/gallery-${n}.jpg`}
             alt={`Trabajo ${n}`}
-            className="w-full h-48 object-cover transform scale-90 hover:scale-100 transition-transform duration-300"
+            className="w-full h-64 object-contain transform scale-90 hover:scale-95 transition-transform duration-300 bg-gray-200"
           />
         </div>
       ))}
     </div>
   </div>
 </section>
+
 
 
 
