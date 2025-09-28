@@ -124,14 +124,13 @@ const Printing3DWebsite = () => {
           <img
             src={`/images/gallery-${n}.jpg`}
             alt={`Trabajo ${n}`}
-            className="w-full h-64 object-contain transform scale-90 hover:scale-95 transition-transform duration-300 bg-gray-200"
+            className="w-full h-64 object-cover transform scale-95 hover:scale-100 transition-transform duration-300 bg-white"
           />
         </div>
       ))}
     </div>
   </div>
 </section>
-
 
 
 
