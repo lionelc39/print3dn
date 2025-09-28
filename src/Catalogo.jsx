@@ -14,6 +14,7 @@ const productos = [
 export default function Catalogo() {
   const [carrito, setCarrito] = useState([]);
   const [medioPago, setMedioPago] = useState("Tarjeta");
+  const [botonEstado, setBotonEstado] = useState({}); // guarda estado de cada botón
 
   // Agregar producto con cantidad
   const agregarAlCarrito = (producto) => {
@@ -27,6 +28,14 @@ export default function Catalogo() {
     } else {
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
     }
+
+    // Cambiar estado del botón a "Agregado"
+    setBotonEstado((prev) => ({ ...prev, [producto.id]: "agregado" }));
+
+    // Volver a "Agregar" después de 1.5 segundos
+    setTimeout(() => {
+      setBotonEstado((prev) => ({ ...prev, [producto.id]: "default" }));
+    }, 1500);
   };
 
   // Modificar cantidad
@@ -82,11 +91,18 @@ export default function Catalogo() {
               />
               <h3 className="font-semibold">{prod.nombre}</h3>
               <p className="text-gray-600">${prod.precio}</p>
+
               <button
                 onClick={() => agregarAlCarrito(prod)}
-                className="mt-3 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+                className={`mt-3 px-4 py-2 rounded font-semibold transition-all ${
+                  botonEstado[prod.id] === "agregado"
+                    ? "bg-green-600 text-white animate-pulse"
+                    : "bg-purple-600 text-white hover:bg-purple-700"
+                }`}
               >
-                Agregar al carrito
+                {botonEstado[prod.id] === "agregado"
+                  ? "✅ Agregado"
+                  : "➕ Agregar"}
               </button>
             </div>
           ))}
