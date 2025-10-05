@@ -1,197 +1,190 @@
 import { useState } from "react";
+import { Button } from "./components/ui/button";
 
-const productos = [
-  { id: 1, nombre: "Producto 1", precio: 2000, imagen: "/images/gallery-1.jpg" },
-  { id: 2, nombre: "Producto 2", precio: 3500, imagen: "/images/gallery-2.jpg" },
-  { id: 3, nombre: "Producto 3", precio: 1500, imagen: "/images/gallery-3.jpg" },
-  { id: 4, nombre: "Producto 4", precio: 5000, imagen: "/images/gallery-4.jpg" },
-  { id: 5, nombre: "Producto 5", precio: 2800, imagen: "/images/gallery-5.jpg" },
-  { id: 6, nombre: "Producto 6", precio: 3200, imagen: "/images/gallery-6.jpg" },
-  { id: 7, nombre: "Producto 7", precio: 4000, imagen: "/images/gallery-7.jpg" },
-  { id: 8, nombre: "Producto 8", precio: 2200, imagen: "/images/gallery-8.jpg" },
-];
+const Catalogo = () => {
+  // Lista de productos
+  const productos = [
+    {
+      id: 1,
+      nombre: "Corazón anatómico",
+      descripcion: "Modelo 3D decorativo o educativo, impreso en PLA de alta calidad.",
+      precio: 3500,
+      imagen: "/images/gallery-1.jpg",
+    },
+    {
+      id: 2,
+      nombre: "Spiderman Mini Duo",
+      descripcion: "Pareja de figuras articuladas de Spiderman. Altura: 10 cm.",
+      precio: 4500,
+      imagen: "/images/gallery-2.jpg",
+    },
+    {
+      id: 3,
+      nombre: "Lámpara Espiral",
+      descripcion: "Lámpara decorativa impresa en 3D. Ideal para ambientar espacios.",
+      precio: 5800,
+      imagen: "/images/gallery-3.jpg",
+    },
+    {
+      id: 4,
+      nombre: "Llaveros Personalizados",
+      descripcion: "Llaveros con tu nombre o logo. Personalizables en colores.",
+      precio: 1200,
+      imagen: "/images/gallery-4.jpg",
+    },
+  ];
 
-export default function Catalogo() {
+  // Estado del carrito
   const [carrito, setCarrito] = useState([]);
-  const [medioPago, setMedioPago] = useState("Tarjeta");
-  const [botonEstado, setBotonEstado] = useState({}); // guarda estado de cada botón
+  const [botonesActivos, setBotonesActivos] = useState({});
 
-  // Agregar producto con cantidad
-  const agregarAlCarrito = (producto) => {
-    const existe = carrito.find((p) => p.id === producto.id);
-    if (existe) {
-      setCarrito(
-        carrito.map((p) =>
-          p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p
-        )
-      );
-    } else {
-      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
-    }
+  // Función para agregar al carrito
+  const agregarAlCarrito = (producto, cantidad) => {
+    setCarrito((prev) => {
+      const existente = prev.find((item) => item.id === producto.id);
+      if (existente) {
+        return prev.map((item) =>
+          item.id === producto.id
+            ? { ...item, cantidad: item.cantidad + cantidad }
+            : item
+        );
+      }
+      return [...prev, { ...producto, cantidad }];
+    });
 
-    // Cambiar estado del botón a "Agregado"
-    setBotonEstado((prev) => ({ ...prev, [producto.id]: "agregado" }));
-
-    // Volver a "Agregar" después de 1.5 segundos
-    setTimeout(() => {
-      setBotonEstado((prev) => ({ ...prev, [producto.id]: "default" }));
-    }, 1500);
-  };
-
-  // Modificar cantidad
-  const cambiarCantidad = (id, delta) => {
-    setCarrito(
-      carrito
-        .map((p) =>
-          p.id === id ? { ...p, cantidad: Math.max(1, p.cantidad + delta) } : p
-        )
+    // Cambia el botón temporalmente a "Agregado"
+    setBotonesActivos((prev) => ({ ...prev, [producto.id]: true }));
+    setTimeout(
+      () => setBotonesActivos((prev) => ({ ...prev, [producto.id]: false })),
+      1500
     );
   };
 
-  // Eliminar producto
+  // Eliminar producto del carrito
   const eliminarDelCarrito = (id) => {
-    setCarrito(carrito.filter((p) => p.id !== id));
+    setCarrito((prev) => prev.filter((item) => item.id !== id));
   };
 
   // Calcular total
-  const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);
+  const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
 
-  // Enviar por WhatsApp
-  const enviarWhatsApp = () => {
-    if (carrito.length === 0) {
-      alert("El carrito está vacío");
-      return;
-    }
-
-    const resumen = carrito
-      .map((p) => `${p.nombre} x${p.cantidad} - $${p.precio * p.cantidad}`)
+  // Enviar pedido por WhatsApp
+  const enviarPorWhatsApp = () => {
+    const mensaje = carrito
+      .map(
+        (p) => `🛒 ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`
+      )
       .join("%0A");
-
-    const mensaje = `Hola! Quiero realizar esta compra:%0A${resumen}%0A%0ATotal: $${total}%0AMedio de pago: ${medioPago}`;
-    const telefono = "5493489324301"; // <-- tu número con código de país
-    window.open(`https://wa.me/${telefono}?text=${mensaje}`, "_blank");
+    const texto = `Hola! Quiero hacer este pedido:%0A${mensaje}%0A%0ATotal: $${total}`;
+    window.open(`https://wa.me/5493489324301?text=${texto}`, "_blank");
   };
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8 text-center">Catálogo</h2>
+    <section id="catalogo" className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-12">Catálogo</h2>
 
-        {/* Lista de productos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {productos.map((prod) => (
+        {/* Grid de productos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {productos.map((producto) => (
             <div
-              key={prod.id}
-              className="border rounded-lg p-4 shadow bg-white flex flex-col items-center"
+              key={producto.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition"
             >
               <img
-                src={prod.imagen}
-                alt={prod.nombre}
-                className="w-full h-40 object-cover rounded mb-4"
+                src={producto.imagen}
+                alt={producto.nombre}
+                className="w-full h-48 object-cover"
               />
-              <h3 className="font-semibold">{prod.nombre}</h3>
-              <p className="text-gray-600">${prod.precio}</p>
+              <div className="p-4 flex flex-col flex-grow">
+                <h3 className="font-semibold text-lg mb-1 text-gray-800">
+                  {producto.nombre}
+                </h3>
+                <p className="text-gray-600 text-sm flex-grow">
+                  {producto.descripcion}
+                </p>
+                <p className="mt-2 font-bold text-primary">${producto.precio}</p>
 
-              <button
-                onClick={() => agregarAlCarrito(prod)}
-                className={`mt-3 px-4 py-2 rounded font-semibold transition-all ${
-                  botonEstado[prod.id] === "agregado"
-                    ? "bg-green-600 text-white animate-pulse"
-                    : "bg-purple-600 text-white hover:bg-purple-700"
-                }`}
-              >
-                {botonEstado[prod.id] === "agregado"
-                  ? "✅ Agregado"
-                  : "➕ Agregar"}
-              </button>
+                {/* Selector de cantidad */}
+                <div className="flex items-center justify-between mt-4">
+                  <input
+                    type="number"
+                    min="1"
+                    defaultValue="1"
+                    className="w-16 border rounded p-1 text-center text-gray-700"
+                    id={`cantidad-${producto.id}`}
+                  />
+
+                  <Button
+                    className={`transition-all ${
+                      botonesActivos[producto.id]
+                        ? "bg-green-600 text-white"
+                        : "bg-primary hover:bg-primary/90"
+                    }`}
+                    onClick={() => {
+                      const cantidad = parseInt(
+                        document.getElementById(`cantidad-${producto.id}`).value
+                      );
+                      agregarAlCarrito(producto, cantidad);
+                    }}
+                  >
+                    {botonesActivos[producto.id] ? "Agregado ✅" : "Agregar"}
+                  </Button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Carrito */}
-        <div className="mt-12 bg-white p-6 rounded-lg shadow">
-          <h3 className="text-2xl font-bold mb-4">Carrito de compras</h3>
+        <div className="mt-16 bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
+          <h3 className="text-2xl font-bold mb-4">🛍️ Tu Carrito</h3>
+
           {carrito.length === 0 ? (
-            <p className="text-gray-500">El carrito está vacío</p>
+            <p className="text-gray-600">Aún no agregaste productos.</p>
           ) : (
-            <div className="space-y-4">
-              {carrito.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex items-center justify-between border-b pb-2"
-                >
-                  <div>
-                    <p className="font-semibold">{item.nombre}</p>
-                    <p className="text-sm text-gray-600">
-                      ${item.precio} c/u
-                    </p>
-                  </div>
-
-                  {/* Cantidad */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => cambiarCantidad(item.id, -1)}
-                      className="px-2 py-1 bg-gray-300 rounded"
-                    >
-                      -
-                    </button>
-                    <span>{item.cantidad}</span>
-                    <button
-                      onClick={() => cambiarCantidad(item.id, 1)}
-                      className="px-2 py-1 bg-gray-300 rounded"
-                    >
-                      +
-                    </button>
-                  </div>
-
-                  {/* Subtotal */}
-                  <p className="w-24 text-right">
-                    ${item.precio * item.cantidad}
-                  </p>
-
-                  {/* Eliminar */}
-                  <button
-                    onClick={() => eliminarDelCarrito(item.id)}
-                    className="text-red-500 hover:underline"
+            <>
+              <ul className="divide-y">
+                {carrito.map((item) => (
+                  <li
+                    key={item.id}
+                    className="py-3 flex justify-between items-center"
                   >
-                    ❌
-                  </button>
-                </div>
-              ))}
+                    <div>
+                      <p className="font-semibold text-gray-800">
+                        {item.nombre} (x{item.cantidad})
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        ${item.precio * item.cantidad}
+                      </p>
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="text-red-500 border-red-500 hover:bg-red-500 hover:text-white"
+                      onClick={() => eliminarDelCarrito(item.id)}
+                    >
+                      Eliminar
+                    </Button>
+                  </li>
+                ))}
+              </ul>
 
-              {/* Total */}
-              <div className="flex justify-between font-bold text-lg pt-4">
-                <span>Total:</span>
-                <span>${total}</span>
-              </div>
+              <div className="mt-4 flex justify-between items-center border-t pt-4">
+                <p className="text-xl font-bold">Total: ${total}</p>
 
-              {/* Medio de pago */}
-              <div>
-                <label className="block font-semibold mb-1">
-                  Medio de pago:
-                </label>
-                <select
-                  value={medioPago}
-                  onChange={(e) => setMedioPago(e.target.value)}
-                  className="border rounded px-3 py-2"
+                <Button
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                  onClick={enviarPorWhatsApp}
                 >
-                  <option>Tarjeta</option>
-                  <option>Transferencia</option>
-                  <option>Efectivo</option>
-                </select>
+                  Enviar por WhatsApp 📲
+                </Button>
               </div>
-
-              {/* Botón WhatsApp */}
-              <button
-                onClick={enviarWhatsApp}
-                className="w-full mt-4 bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700"
-              >
-                Enviar pedido por WhatsApp
-              </button>
-            </div>
+            </>
           )}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Catalogo;
