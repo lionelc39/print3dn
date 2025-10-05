@@ -67,32 +67,35 @@ const Printing3DWebsite = () => {
 </header>
 
 
-      {/* Hero */}
+     {/* Hero */}
 <section className="py-20 text-center bg-gradient-to-b from-gray-50 to-gray-100">
   <div className="container mx-auto">
     <h2 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800">
       Impresión 3D de <span className="text-primary">Calidad</span>
     </h2>
+
     <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
       {businessData.heroSubtitle}
     </p>
 
     <div className="flex justify-center gap-4">
-      {/* Un solo botón para evitar duplicados */}
+      {/* Botón principal: Ver Catálogo */}
       <a href="#catalogo">
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+        <Button size="lg" className="bg-primary hover:bg-primary/90 text-white transition-all">
           Ver Catálogo
         </Button>
       </a>
 
+      {/* Botón secundario: Contactanos (reemplaza a “Solicitar cotización”) */}
       <a href="#contacto">
-        <Button variant="outline" className="text-primary border-primary hover:bg-primary hover:text-white">
+        <Button variant="outline" className="text-primary border-primary hover:bg-primary hover:text-white transition-all">
           Contactanos
         </Button>
       </a>
     </div>
   </div>
 </section>
+
 
 
       {/* Servicios */}
