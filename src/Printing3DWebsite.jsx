@@ -78,23 +78,19 @@ const Printing3DWebsite = () => {
       {businessData.heroSubtitle}
     </p>
 
-    <div className="flex justify-center gap-4">
-      {/* Botón principal: Ver Catálogo */}
-      <a href="#catalogo">
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-white transition-all">
-          Ver Catálogo
-        </Button>
-      </a>
-
-      {/* Botón secundario: Contactanos (reemplaza a “Solicitar cotización”) */}
-      <a href="#contacto">
-        <Button variant="outline" className="text-primary border-primary hover:bg-primary hover:text-white transition-all">
-          Contactanos
-        </Button>
-      </a>
-    </div>
-  </div>
-</section>
+<div className="flex justify-center gap-4">
+  <a href="#contacto">
+    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+      Comenzar Mi Proyecto
+    </Button>
+  </a>
+  
+  <a href="#galeria">
+    <Button variant="outline" size="lg" className="text-primary border-primary hover:bg-primary hover:text-white">
+      Ver Trabajos Realizados
+    </Button>
+  </a>
+</div>
 
 
 
