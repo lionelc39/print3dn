@@ -24,20 +24,7 @@ const Printing3DWebsite = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Floating Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        {isAdmin && (
-          <button onClick={() => setShowConfig(!showConfig)} className="bg-gray-600 text-white p-3 rounded-full">
-            <Settings className="w-5 h-5" />
-          </button>
-        )}
-        <a href="https://www.instagram.com/print3d.n/" target="_blank" rel="noreferrer" className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-3 rounded-full">
-          IG
-        </a>
-        <a href="https://wa.me/5493489324301" target="_blank" rel="noreferrer" className="bg-green-500 text-white p-3 rounded-full">
-          WA
-        </a>
-      </div>
+     
 
   {/* Header */}
 <header className="bg-background border-b border-gray-200 sticky top-0 z-40 shadow-sm">
