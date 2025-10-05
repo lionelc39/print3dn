@@ -170,23 +170,90 @@ const Printing3DWebsite = () => {
               <p className="mb-1"><strong>Tel:</strong> {businessData.phone}</p>
               <p><strong>Email:</strong> {businessData.email}</p>
             </div>
-            <form action="https://formspree.io/f/mblzderr" method="POST" className="space-y-4">
-              <div>
-                <Label htmlFor="name">Nombre</Label>
-                <Input id="name" type="text" name="name" required />
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" name="email" required />
-              </div>
-              <div>
-                <Label htmlFor="message">Mensaje</Label>
-                <Textarea id="message" name="message" rows={4} required />
-              </div>
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
-                Enviar Mensaje
-              </Button>
-            </form>
+          <form
+  onSubmit={(e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    const medioPago = form.medioPago.value;
+
+    if (!name || !email || !message) {
+      alert("Por favor, completá todos los campos antes de enviar.");
+      return;
+    }
+
+    const texto = `👋 Hola! Soy ${name}.
+📧 Mi correo es: ${email}.
+💬 Mensaje: ${message}
+💳 Medio de pago elegido: ${medioPago}`;
+
+    window.open(
+      `https://wa.me/5493489324301?text=${encodeURIComponent(texto)}`,
+      "_blank"
+    );
+  }}
+  className="space-y-4 bg-white shadow-md rounded-lg p-6 border border-gray-200"
+>
+  <div>
+    <Label htmlFor="name">Nombre completo</Label>
+    <Input
+      id="name"
+      type="text"
+      name="name"
+      placeholder="Ej: Lionel Castiglioni"
+      required
+    />
+  </div>
+
+  <div>
+    <Label htmlFor="email">Email</Label>
+    <Input
+      id="email"
+      type="email"
+      name="email"
+      placeholder="Ej: print3d.n@gmail.com"
+      required
+    />
+  </div>
+
+  <div>
+    <Label htmlFor="medioPago">Medio de pago preferido</Label>
+    <select
+      id="medioPago"
+      name="medioPago"
+      className="w-full border rounded p-2 mt-1 text-gray-700 focus:ring focus:ring-primary/40"
+      required
+    >
+      <option value="">Seleccionar...</option>
+      <option value="Tarjeta de crédito">💳 Tarjeta de crédito</option>
+      <option value="Transferencia bancaria">🏦 Transferencia bancaria</option>
+      <option value="Efectivo">💵 Efectivo</option>
+      <option value="Mercado Pago">📱 Mercado Pago</option>
+    </select>
+  </div>
+
+  <div>
+    <Label htmlFor="message">Mensaje</Label>
+    <Textarea
+      id="message"
+      name="message"
+      rows={4}
+      placeholder="Contanos qué te gustaría imprimir..."
+      required
+    />
+  </div>
+
+  <Button
+    type="submit"
+    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 transition-all"
+  >
+    Enviar por WhatsApp 📲
+  </Button>
+</form>
+
           </div>
         </div>
       </section>
