@@ -68,15 +68,23 @@ const Catalogo = () => {
   // Calcular total
   const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
 
-  // Enviar pedido por WhatsApp
+  // 🟢 Enviar pedido por WhatsApp (nuevo formato)
   const enviarPorWhatsApp = () => {
-    const mensaje = carrito
-      .map(
-        (p) => `🛒 ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`
-      )
-      .join("%0A");
-    const texto = `Hola! Quiero hacer este pedido:%0A${mensaje}%0A%0ATotal: $${total}`;
-    window.open(`https://wa.me/5493489324301?text=${texto}`, "_blank");
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
+
+    const productos = carrito
+      .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
+      .join("\n");
+
+    const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
+
+    window.open(
+      `https://wa.me/5493489324301?text=${encodeURIComponent(mensaje)}`,
+      "_blank"
+    );
   };
 
   return (
@@ -136,9 +144,28 @@ const Catalogo = () => {
           ))}
         </div>
 
-        {/* Carrito */}
+        {/* 🛒 Carrito */}
         <div className="mt-16 bg-white rounded-lg shadow-md p-6 max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">🛍️ Tu Carrito</h3>
+
+          {/* 📦 Información de envío */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4 text-sm text-gray-700">
+            <h4 className="font-semibold text-lg mb-2 flex items-center gap-2">
+              📦 Opciones de Envío
+            </h4>
+            <p>
+              Por el momento realizamos envíos únicamente a:
+              <ul className="list-disc list-inside mt-2">
+                <li>Zárate</li>
+                <li>Campana</li>
+                <li>Facultad de Ciencias Veterinarias</li>
+              </ul>
+            </p>
+            <p className="mt-2 font-medium text-gray-800">
+              También disponible:{" "}
+              <span className="text-primary font-bold">Retiro en local</span>
+            </p>
+          </div>
 
           {carrito.length === 0 ? (
             <p className="text-gray-600">Aún no agregaste productos.</p>
