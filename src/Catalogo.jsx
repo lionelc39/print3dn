@@ -68,18 +68,25 @@ const Catalogo = () => {
   // Calcular total
   const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
 
-  // 🟢 Enviar pedido por WhatsApp (nuevo formato)
-  const enviarPorWhatsApp = () => {
-    if (carrito.length === 0) {
-      alert("Tu carrito está vacío.");
-      return;
-    }
+  // 🟢 Enviar pedido por WhatsApp 
+const enviarPorWhatsApp = () => {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
 
-    const productos = carrito
-      .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
-      .join("\n");
+  const productos = carrito
+    .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
+    .join("\n");
 
-    const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
+  const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
+
+  // 🔹 Usamos encodeURI (NO encodeURIComponent) para conservar emojis y formato
+  const url = `https://wa.me/5493489324301?text=${encodeURI(mensaje)}`;
+
+  window.open(url, "_blank");
+};
+
 
     window.open(
       `https://wa.me/5493489324301?text=${encodeURIComponent(mensaje)}`,
