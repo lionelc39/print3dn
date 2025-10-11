@@ -84,9 +84,6 @@ const enviarPorWhatsApp = () => {
   // 🔹 Usamos encodeURI (NO encodeURIComponent) para conservar emojis y formato
   const url = `https://wa.me/5493489324301?text=${encodeURI(mensaje)}`;
 
-  window.open(url, "_blank");
-};
-
 
     window.open(
       `https://wa.me/5493489324301?text=${encodeURIComponent(mensaje)}`,
