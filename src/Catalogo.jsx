@@ -79,16 +79,11 @@ const enviarPorWhatsApp = () => {
     .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
     .join("\n");
 
-  const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
-
-  // 🔹 Usamos encodeURI (NO encodeURIComponent) para conservar emojis y formato
-  const url = `https://wa.me/5493489324301?text=${encodeURI(mensaje)}`;
+  const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\n💰 Total de la compra: $${total}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
 
 
-    window.open(
-      `https://wa.me/5493489324301?text=${encodeURIComponent(mensaje)}`,
-      "_blank"
-    );
+window.open(`https://wa.me/5493489324301?text=${encodeURI(mensaje)}`, "_blank");
+
   };
 
   return (
