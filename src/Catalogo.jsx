@@ -27,8 +27,8 @@ const Catalogo = () => {
     },
     {
       id: 4,
-      nombre: "Llaveros Personalizados",
-      descripcion: "Llaveros con tu nombre o logo. Personalizables en colores.",
+      nombre: "Sello Sol de Mayo",
+      descripcion: "Sello 3D para cerámica. Ideal para estampar un diseño icónico y detallado en tu arcilla.(8x8 cm)",
       precio: 1200,
       imagen: "/images/gallery-4.jpg",
     },
