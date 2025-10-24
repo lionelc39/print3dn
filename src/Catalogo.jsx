@@ -32,6 +32,12 @@ const Catalogo = () => {
       precio: 8000,
       imagen: "/images/gallery-4.jpg",
     },
+      id: 5,
+      nombre: "Set 3 Cortantes Argentina (Norte, Centro, Sur)",
+      descripcion: "Cortantes 3D Medidas: Norte (6,5x10,5 cm), Centro (11,5x9,5 cm), Sur (11x3,5 cm). El color es ilustrativo y puede variar.",
+      precio: 15000,
+      imagen: "/images/gallery-9.jpg",
+    },   
   ];
 
   // Estado del carrito
