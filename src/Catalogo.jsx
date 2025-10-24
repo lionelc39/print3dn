@@ -6,22 +6,22 @@ const Catalogo = () => {
   const productos = [
     {
       id: 1,
-      nombre: "Corazón anatómico",
-      descripcion: "Modelo 3D decorativo o educativo, impreso en PLA de alta calidad.",
+      nombre: "Lámpara Espiral",
+      descripcion: "Lámpara decorativa impresa en 3D. Ideal para ambientar espacios.",
       precio: 3500,
       imagen: "/images/gallery-1.jpg",
     },
     {
       id: 2,
-      nombre: "Spiderman Mini Duo",
-      descripcion: "Pareja de figuras articuladas de Spiderman. Altura: 10 cm.",
+      nombre: "Llavero de gatitos",
+      descripcion: "Dos gatitos que encajan en una casita, ideal para organizar tus llaves con estilo",
       precio: 4500,
       imagen: "/images/gallery-2.jpg",
     },
     {
       id: 3,
-      nombre: "Lámpara Espiral",
-      descripcion: "Lámpara decorativa impresa en 3D. Ideal para ambientar espacios.",
+      nombre: "Manopla llavero Cat",
+      descripcion: "Diseño ergonómico en forma de gato, práctico para llevar en la mano y brindar seguridad en todo momento.",
       precio: 5800,
       imagen: "/images/gallery-3.jpg",
     },
