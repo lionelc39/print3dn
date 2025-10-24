@@ -15,7 +15,7 @@ const Catalogo = () => {
       id: 2,
       nombre: "Llavero de gatitos",
       descripcion: "Dos gatitos que encajan en una casita, ideal para organizar tus llaves con estilo",
-      precio: 4500,
+      precio: 25000,
       imagen: "/images/gallery-2.jpg",
     },
     {
@@ -29,7 +29,7 @@ const Catalogo = () => {
       id: 4,
       nombre: "Sello Sol de Mayo",
       descripcion: "Sello 3D para cerámica. Ideal para estampar un diseño icónico y detallado en tu arcilla.(8x8 cm)",
-      precio: 1200,
+      precio: 8000,
       imagen: "/images/gallery-4.jpg",
     },
   ];
