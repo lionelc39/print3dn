@@ -7,4 +7,5 @@
   { "id": 6, "nombre": "Producto 6", "precio": 3200, "img": "/images/gallery-6.jpg" },
   { "id": 7, "nombre": "Producto 7", "precio": 2800, "img": "/images/gallery-7.jpg" },
   { "id": 8, "nombre": "Producto 8", "precio": 4000, "img": "/images/gallery-8.jpg" }
+  { "id": 9, "nombre": "Producto 9", "precio": 4000, "img": "/images/gallery-9.jpg" }
 ]
