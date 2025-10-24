@@ -32,6 +32,7 @@ const Catalogo = () => {
       precio: 8000,
       imagen: "/images/gallery-4.jpg",
     },
+    {
       id: 5,
       nombre: "Set 3 Cortantes Argentina (Norte, Centro, Sur)",
       descripcion: "Cortantes 3D Medidas: Norte (6,5x10,5 cm), Centro (11,5x9,5 cm), Sur (11x3,5 cm). El color es ilustrativo y puede variar.",
@@ -75,21 +76,19 @@ const Catalogo = () => {
   const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
 
   // 🟢 Enviar pedido por WhatsApp 
-const enviarPorWhatsApp = () => {
-  if (carrito.length === 0) {
-    alert("Tu carrito está vacío.");
-    return;
-  }
+  const enviarPorWhatsApp = () => {
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
 
-  const productos = carrito
-    .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
-    .join("\n");
+    const productos = carrito
+      .map((p) => `• ${p.nombre} (x${p.cantidad}) - $${p.precio * p.cantidad}`)
+      .join("\n");
 
-  const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\n💰 Total de la compra: $${total}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
+    const mensaje = `¡Hola! 👋 Quiero hacer este pedido:\n\n${productos}\n\n💰 Total de la compra: $${total}\n\nPor favor, completá los siguientes datos:\n\n📝 Nombre y Apellido:\n🆔 DNI:\n📦 Envío o Retiro:\n📍 Dirección (si es envío):\n📞 Número de contacto:\n\n¡En breve contestaremos tu mensaje, muchas gracias! 😊`;
 
-
-window.open(`https://wa.me/5493489324301?text=${encodeURI(mensaje)}`, "_blank");
-
+    window.open(`https://wa.me/5493489324301?text=${encodeURI(mensaje)}`, "_blank");
   };
 
   return (
