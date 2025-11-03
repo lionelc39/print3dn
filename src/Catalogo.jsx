@@ -6,16 +6,16 @@ const Catalogo = () => {
   const productos = [
     {
       id: 1,
-      nombre: "Lámpara Espiral",
-      descripcion: "Lámpara decorativa impresa en 3D. Ideal para ambientar espacios.",
-      precio: 3500,
+      nombre: "Lámpara Lumi",
+      descripcion: "Lámpara decorativa impresa en 3D. Ideal para ambientar espacios. Altura 24 cm , diametro de base 11.5 cm. ",
+      precio: 70000,
       imagen: "/images/gallery-1.jpg",
     },
     {
       id: 2,
       nombre: "Llavero de gatitos",
-      descripcion: "Dos gatitos que encajan en una casita, ideal para organizar tus llaves con estilo",
-      precio: 25000,
+      descripcion: "Dos gatitos que encajan en una casita, ideal para organizar tus llaves con estilo. Los colores son ilustrativos",
+      precio: 18000,
       imagen: "/images/gallery-2.jpg",
     },
     {
@@ -28,14 +28,14 @@ const Catalogo = () => {
     {
       id: 4,
       nombre: "Sello Sol de Mayo",
-      descripcion: "Sello 3D para cerámica. Ideal para estampar un diseño icónico y detallado en tu arcilla.(8x8 cm)",
+      descripcion: "Sello 3D para cerámica. Ideal para estampar un diseño icónico y detallado.(8x8 cm)",
       precio: 8000,
       imagen: "/images/gallery-4.jpg",
     },
     {
       id: 5,
       nombre: "Set 3 Cortantes Argentina (Norte, Centro, Sur)",
-      descripcion: "Cortantes 3D Medidas: Norte (6,5x10,5 cm), Centro (11,5x9,5 cm), Sur (11x3,5 cm). El color es ilustrativo y puede variar.",
+      descripcion: "Cortantes para ceramica. El color es ilustrativo y puede variar.",
       precio: 15000,
       imagen: "/images/gallery-9.jpg",
     },   
