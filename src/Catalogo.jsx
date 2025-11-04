@@ -39,7 +39,14 @@ const Catalogo = () => {
       precio: 15000,
       imagen: "/images/gallery-9.jpg",
     },   
-  ];
+  {
+    id: 6,  
+    nombre: "Porta-Gafas Cocodrilo",
+    descripcion: "Mantén tus lentes seguros y siempre a la vista con este original soporte de cocodrilo",
+    precio: 18000,  // ← Precio en pesos (sin puntos ni comas)
+    imagen: "/images/gallery-10.jpg",  // ← Ruta de la imagen
+  },
+];
 
   // Estado del carrito
   const [carrito, setCarrito] = useState([]);
