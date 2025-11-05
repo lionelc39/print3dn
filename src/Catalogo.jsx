@@ -46,6 +46,13 @@ const Catalogo = () => {
     precio: 18000,  // ← Precio en pesos (sin puntos ni comas)
     imagen: "/images/gallery-10.jpg",  // ← Ruta de la imagen
   },
+  {
+    id: 7,  
+    nombre: "Lampara Lumi soft",
+    descripcion: "Lámpara decorativa impresa en 3D. Altura 22 cm. Diametro de base 11,5 cm ",
+    precio: 60000,  // ← Precio en pesos (sin puntos ni comas)
+    imagen: "/images/gallery-11.jpg",  // ← Ruta de la imagen
+ },  
 ];
 
   // Estado del carrito
