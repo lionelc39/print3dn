@@ -19,7 +19,7 @@ const Printing3DWebsite = () => {
     heroSubtitle:
       "Transformamos tus ideas en realidad con nuestra tecnología de impresión 3D profesional",
     phone: "+54 9 3489 324301",
-    email: "print3d.n@gmail.com",
+    email: "n.impresiones3d75@gmail.com",
     serviceTitles: { prototipado: "Prototipado Rápido" },
     serviceDescriptions: {
       prototipado:
