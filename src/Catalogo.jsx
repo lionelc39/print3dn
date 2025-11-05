@@ -53,6 +53,13 @@ const Catalogo = () => {
     precio: 60000,  // ← Precio en pesos (sin puntos ni comas)
     imagen: "/images/gallery-11.jpg",  // ← Ruta de la imagen
  },  
+ {
+    id: 8,  
+    nombre: "Sello Personalizado",
+    descripcion: "Sello 3D Personalizado con tu Diseño o Iniciales. La herramienta ideal para estampar tu marca personal en ceramica o pinturas ",
+    precio: 0,  // ← Precio en pesos (sin puntos ni comas)
+    imagen: "/images/gallery-12.jpg",  // ← Ruta de la imagen
+ },     
 ];
 
   // Estado del carrito
