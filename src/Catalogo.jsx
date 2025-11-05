@@ -43,22 +43,22 @@ const Catalogo = () => {
     id: 6,  
     nombre: "Porta-Gafas Cocodrilo",
     descripcion: "Mantén tus lentes seguros y siempre a la vista con este original soporte de cocodrilo",
-    precio: 18000,  // ← Precio en pesos (sin puntos ni comas)
-    imagen: "/images/gallery-10.jpg",  // ← Ruta de la imagen
+    precio: 18000,
+    imagen: "/images/gallery-10.jpg",
   },
   {
     id: 7,  
     nombre: "Lampara Lumi soft",
     descripcion: "Lámpara decorativa impresa en 3D. Altura 22 cm. Diametro de base 11,5 cm ",
-    precio: 60000,  // ← Precio en pesos (sin puntos ni comas)
-    imagen: "/images/gallery-11.jpg",  // ← Ruta de la imagen
+    precio: 60000,
+    imagen: "/images/gallery-11.jpg",
  },  
  {
     id: 8,  
     nombre: "Sello Personalizado",
     descripcion: "Sello 3D Personalizado con tu Diseño o Iniciales. La herramienta ideal para estampar tu marca personal en ceramica o pinturas ",
-    precio: 0,  // ← Precio en pesos (sin puntos ni comas)
-    imagen: "/images/gallery-12.jpg",  // ← Ruta de la imagen
+    precio: 0,
+    imagen: "/images/gallery-12.jpg",
  },     
 ];
 
@@ -127,7 +127,7 @@ const Catalogo = () => {
               <img
                 src={producto.imagen}
                 alt={producto.nombre}
-                className={`w-full h-48 ${producto.id === 5 ? 'object-contain bg-gray-50 p-2' : 'object-cover'}`}
+                className={`w-full h-48 ${producto.id === 5 || producto.id === 7 ? 'object-contain bg-gray-50 p-2' : 'object-cover'}`}
               />
               <div className="p-4 flex flex-col flex-grow">
                 <h3 className="font-semibold text-lg mb-1 text-gray-800">
