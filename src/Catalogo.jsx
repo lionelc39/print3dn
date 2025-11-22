@@ -145,8 +145,6 @@ const Catalogo = () => {
   className={`w-full h-48 ${
     producto.id === 5 || producto.id === 7 
       ? 'object-contain bg-gray-50 p-2' 
-      : producto.id === 9 
-      ? 'object-cover object-[center_30%]'
       : producto.id === 10
       ? 'object-cover object-[center_40%]'
       : 'object-cover'
