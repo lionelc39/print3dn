@@ -138,18 +138,16 @@ const Catalogo = () => {
               key={producto.id}
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition"
             >
-              <img
-  src={producto.imagen}
-  alt={producto.nombre}
-  className={`w-full h-48 ${
-    producto.id === 5 
-      ? 'object-contain bg-gray-50 p-2' 
-      : producto.id === 7 || producto.id === 9 || producto.id === 10
-      ? 'object-scale-down bg-white'
-      : 'object-cover'
-  }`}
-/>
+               <img
+                src={producto.imagen}
+                alt={producto.nombre}
+                className={`w-full h-48 ${
+                  producto.id === 5 || producto.id === 7 || producto.id === 9 || producto.id === 10
+                    ? 'object-contain bg-gray-50 p-2' 
+                    : 'object-cover'
+                }`}
               />
+              
               <div className="p-4 flex flex-col flex-grow">
                 <h3 className="font-semibold text-lg mb-1 text-gray-800">
                   {producto.nombre}
