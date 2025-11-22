@@ -59,6 +59,20 @@ const Catalogo = () => {
     descripcion: "Sello 3D Personalizado con tu Diseño o Iniciales. La herramienta ideal para estampar tu marca personal en ceramica o pinturas ",
     precio: 0,
     imagen: "/images/gallery-12.jpg",
+ },
+  {
+    id: 9,  
+    nombre: "Posavasos Monstera",
+    descripcion: "Dale un toque tropical y moderno a tu hogar con este set de posavasos Monstera. Protege tus superficies con estilo",
+    precio: 10000,
+    imagen: "/images/gallery-13.jpg",   
+ },   
+   {
+    id: 10,  
+    nombre: "Soporte para Auriculares",
+    descripcion: "Este soporte para auriculares es el accesorio que necesitás para mantener tu espacio de trabajo o setup ordenado y prolijo.",
+    precio: 15000,
+    imagen: "/images/gallery-14.jpg",   
  },     
 ];
 
