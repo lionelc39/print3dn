@@ -143,11 +143,9 @@ const Catalogo = () => {
                 src={producto.imagen}
                 alt={producto.nombre}
                 className={`w-full h-48 ${
-                  producto.id === 5 || producto.id === 7 
+                  producto.id === 5 || producto.id === 7 || producto.id === 9 || producto.id === 10
                     ? 'object-contain bg-gray-50 p-2' 
-                    : producto.id === 9 
-                   ? 'object-cover p-2'
-                  : 'object-cover'
+                    : 'object-cover'
                 }`}
               />
               
