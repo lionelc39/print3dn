@@ -147,6 +147,7 @@ const Catalogo = () => {
                     ? 'object-contain bg-gray-50 p-2' 
                     : producto.id === 9 
                    ? 'object-cover p-2'
+                  : 'object-cover'
                 }`}
               />
               
