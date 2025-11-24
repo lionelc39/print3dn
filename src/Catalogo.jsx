@@ -139,12 +139,16 @@ const Catalogo = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition"
             >
        
-             <img
+            <img
   src={producto.imagen}
   alt={producto.nombre}
-  className={`w-full h-48 ${
+  className={`w-full ${
+    producto.id === 9 ? 'h-56 sm:h-64' : 'h-48'
+  } ${
     producto.id === 5 || producto.id === 7 
       ? 'object-contain bg-gray-50 p-2' 
+      : producto.id === 9
+      ? 'object-scale-down bg-white'
       : producto.id === 10
       ? 'object-cover object-[center_40%]'
       : 'object-cover'
