@@ -139,19 +139,23 @@ const Catalogo = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition"
             >
        
-            <img
+          <img
   src={producto.imagen}
   alt={producto.nombre}
   className={`w-full ${
-    producto.id === 9 ? 'h-56 sm:h-64' : 'h-48'
+    producto.id === 9 
+      ? 'h-48 sm:h-56'           // Posavasos: normal mobile, más grande desktop
+      : producto.id === 10 
+      ? 'h-52 sm:h-56'           // Auriculares: más alto mobile para ver completo
+      : 'h-48'                   // Resto: altura estándar
   } ${
     producto.id === 5 || producto.id === 7 
-      ? 'object-contain bg-gray-50 p-2' 
+      ? 'object-contain bg-gray-50 p-2'        // Cortantes y lámpara
       : producto.id === 9
-      ? 'object-scale-down bg-white'
+      ? 'object-cover object-center'           // Posavasos: zoom natural
       : producto.id === 10
-      ? 'object-cover object-[center_40%]'
-      : 'object-cover'
+      ? 'object-scale-down bg-white'           // Auriculares: completo
+      : 'object-cover'                         // Resto: normal
   }`}
 />
               <div className="p-4 flex flex-col flex-grow">
