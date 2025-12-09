@@ -153,9 +153,7 @@ const Catalogo = () => {
       ? 'object-contain bg-gray-50 p-2'        // Cortantes y lámpara
       : producto.id === 9
       ? 'object-cover object-center'           // Posavasos: zoom natural
-      : producto.id === 10
-      ? 'object-scale-down bg-white'           // Auriculares: completo
-      : 'object-cover'                         // Resto: normal
+   
   }`}
 />
               <div className="p-4 flex flex-col flex-grow">
