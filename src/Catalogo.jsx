@@ -149,7 +149,7 @@ const Catalogo = () => {
       ? 'h-52 sm:h-56'           // Auriculares: más alto mobile para ver completo
       : 'h-48'                   // Resto: altura estándar
   } ${
-    producto.id === 5 || producto.id === 7 
+    producto.id === 5 
       ? 'object-contain bg-gray-50 p-2'        // Cortantes y lámpara
       : producto.id === 9
       ? 'object-cover object-center'           // Posavasos: zoom natural
