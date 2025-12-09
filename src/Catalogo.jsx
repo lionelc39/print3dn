@@ -145,10 +145,6 @@ const Catalogo = () => {
   className={`w-full ${
     producto.id === 9 
       ? 'h-48 sm:h-56'           // Posavasos: normal mobile, más grande desktop
-      : producto.id === 10 
-      ? 'h-52 sm:h-56'           // Auriculares: más alto mobile para ver completo
-      : 'h-48'                   // Resto: altura estándar
-  } ${
     producto.id === 5 
       ? 'object-contain bg-gray-50 p-2'        // Cortantes y lámpara
       : producto.id === 9
