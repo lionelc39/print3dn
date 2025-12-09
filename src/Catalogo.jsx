@@ -139,17 +139,15 @@ const Catalogo = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition"
             >
        
-          <img
+  <img
   src={producto.imagen}
   alt={producto.nombre}
   className={`w-full ${
     producto.id === 9 
-      ? 'h-48 sm:h-56'           // Posavasos: normal mobile, más grande desktop
-    producto.id === 5 
-      ? 'object-contain bg-gray-50 p-2'        // Cortantes y lámpara
-      : producto.id === 9
-      ? 'object-cover object-center'           // Posavasos: zoom natural
-   
+      ? 'h-48 sm:h-56 object-cover object-center'   // Posavasos
+      : producto.id === 5 
+        ? 'object-contain bg-gray-50 p-2'           // Cortantes
+        : 'h-48 object-cover'                       // Resto de productos (default)
   }`}
 />
               <div className="p-4 flex flex-col flex-grow">
