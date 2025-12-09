@@ -73,6 +73,13 @@ const Catalogo = () => {
     descripcion: "Este soporte para auriculares es el accesorio que necesitás para mantener tu espacio de trabajo o setup ordenado y prolijo.",
     precio: 15000,
     imagen: "/images/gallery-14.jpg",   
+ },  
+ {
+    id: 11,  
+    nombre: "Lampara Lummi Led",
+    descripcion: "Lámpara decorativa impresa en 3D. Sistema Led, salida USB, Altura 10 cm.",
+    precio: 20000,
+    imagen: "/images/gallery-15.jpg",   
  },     
 ];
 
